@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signal</title>
+    <link rel="stylesheet" href="./public/style.css">
+</head>
+
+<body>
+    <h3>All Chats </h3>
+
+    <form method="GET" action="/chats/new">
+        <button>New Chat</button>
+    </form>
+    <br>
+
+    <% for(let chat of chats ){ %>
+        <div class="chat">
+            <p>From: <%= chat.from %>
+            </p>
+            <div class="msg">
+                <p>Message:<i>
+                        <%= chat.message %>
+                        <form method="GET" action="chats/<%= chat._id %>/edit">
+                            <button>Edit</button>
+                        </form>
+                    </i></p>
+            </div>
+
+            <p>Recieved By: <%= chat.to %>
+            </p>
+            <hr>
+
+            <p> Time:<%= chat.date.toString().split(" ")[4]  %></p>   
+            <p> Date:<%= chat.date.toString().split(" ").slice(1,4).join("-") %></p>
+            <p> Day:<%= chat.date.toString().split(" ")[0]  %></p>
+    </div>
+    <br>
+    <br>
+    <%}%>
+    <%  /* Wed,Jan,17,2024,23:57:10,GMT+0530,(India,Standard,Time) */ %>
+
+</body>
+</html>
