@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signal</title>
-    <link rel="stylesheet" href="./public/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -26,12 +26,16 @@
                         <form method="GET" action="chats/<%= chat._id %>/edit">
                             <button>Edit</button>
                         </form>
+
                     </i></p>
+                    <form action="chats/<%= chat._id %>?_method=DELETE" method="POST">
+                        <button>Delete</button>
+                    </form>
             </div>
 
             <p>Recieved By: <%= chat.to %>
             </p>
-            <hr>
+            
 
             <p> Time:<%= chat.date.toString().split(" ")[4]  %></p>   
             <p> Date:<%= chat.date.toString().split(" ").slice(1,4).join("-") %></p>
@@ -39,6 +43,7 @@
     </div>
     <br>
     <br>
+    <hr>
     <%}%>
     <%  /* Wed,Jan,17,2024,23:57:10,GMT+0530,(India,Standard,Time) */ %>
 
