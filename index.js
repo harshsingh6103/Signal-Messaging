@@ -27,7 +27,7 @@ async function main() {
 //Index Route
 
 app.get("/chats", async (req,res)=>{
-    let chats = await Chat.find();
+    let chats = await Chat.find();      
     console.log(chats);
     res.render("index.ejs",{chats})
 })
@@ -36,6 +36,8 @@ app.get("/chats", async (req,res)=>{
 app.get("/chats/new",(req,res)=>{
     res.render("new.ejs")
 })
+
+
 
 
 //Create Route
